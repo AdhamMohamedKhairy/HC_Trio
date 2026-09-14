@@ -16,5 +16,29 @@
         </div>
         <div class="hero-grad"></div>
     </div>
+    <main>
+        <div class="ppl">
+            <img src="me.jpg" alt="Me">
+            <p>ME (AboEl5yr), Jack of all trades, master of none, likes web, game, data science, machine learning, and cybersecurity</p>
+            <p>Hazoro, The sensei, likes web, game, data science, cybersecurity</p>
+            <img src="hazoro.jpg" alt="Hazoro">
+            <img src="lotfy.jpg" alt="Lotfy">
+            <p>Lotfy, That guy, likes game and cybersecurity</p>
+        </div>
+    </main>
+    <script>
+        const rev = document.querySelectorAll(".ppl img, .ppl p")
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add("in-view")
+                    observer.unobserve(entry.target)
+                }
+            })
+        },{threshold: 0.2})
+
+        rev.forEach(el => observer.observe(el))
+    </script>
 </body>
 </html>
